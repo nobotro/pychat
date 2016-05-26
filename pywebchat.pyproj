@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ab47fe28-675f-4451-a6a6-8512dd813f72}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>pyWebChat.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+    <InterpreterVersion />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="configs.py" />
+    <Compile Include="filecontextmanager.py" />
+    <Compile Include="pyWebChat.py" />
+    <Compile Include="requesthandler.py" />
+    <Compile Include="server.py" />
+    <Compile Include="stringutils.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="webfiles\chat.html" />
+    <Content Include="webfiles\eror404.html" />
+    <Content Include="webfiles\favicon.ico" />
+    <Content Include="webfiles\images\angry.gif" />
+    <Content Include="webfiles\images\bow.gif" />
+    <Content Include="webfiles\images\dance.gif" />
+    <Content Include="webfiles\images\dumb.gif" />
+    <Content Include="webfiles\images\eye.gif" />
+    <Content Include="webfiles\images\facepalm.gif" />
+    <Content Include="webfiles\images\giggle.gif" />
+    <Content Include="webfiles\images\giveup.gif" />
+    <Content Include="webfiles\images\inlove.gif" />
+    <Content Include="webfiles\images\lol.gif" />
+    <Content Include="webfiles\images\noway.gif" />
+    <Content Include="webfiles\images\omg.gif" />
+    <Content Include="webfiles\images\panic.gif" />
+    <Content Include="webfiles\images\peting.gif" />
+    <Content Include="webfiles\images\please.gif" />
+    <Content Include="webfiles\images\puppyeyes.gif" />
+    <Content Include="webfiles\images\rain.gif" />
+    <Content Include="webfiles\images\sad.gif" />
+    <Content Include="webfiles\images\smile.gif" />
+    <Content Include="webfiles\images\urock.gif" />
+    <Content Include="webfiles\images\wow.gif" />
+    <Content Include="webfiles\images\zombie.gif" />
+    <Content Include="webfiles\index.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="webfiles" />
+    <Folder Include="webfiles\images" />
+  </ItemGroup>
+  <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
+</Project>

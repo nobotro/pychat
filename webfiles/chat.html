@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>webchat</title>
+</head>
+<body onbeforeunload="return question()">
+
+    <style>
+        html, body {
+            border: 0;
+            padding: 0;
+            margin: 0;
+            height: 100%;
+        }
+
+        body {
+            background: #00897b;
+			display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            font-size: 16px;
+        }
+
+        
+        #txtbox  {
+            overflow: auto;
+      overflow-x: hidden;
+      margin-top:10px;
+            margin-left:126px;
+            margin-bottom: 10px;
+            padding: 10px 5px;
+              position: absolute;
+             bottom: 0;
+             
+                 
+                display: block;
+                width: 665px;
+                
+                font-size: 1em;
+                border-radius: 10px;
+                outline: none;
+                border: 1px solid #ccc;
+            }
+
+        #btn { margin-top:10px;
+              width:68px;
+             margin-left: 28px;
+            margin-bottom: 10px;
+              padding: 10px 5px;
+              float:left;
+             position: absolute;
+             bottom: 0;
+             left:88%;
+                
+                
+                
+               
+                 
+                color: white;
+                background: #4db6ac;
+                outline: none;
+                border: none;
+                
+                font-size: 1.1em;
+              
+                border-radius: 6px;
+                box-shadow: 0px 0px 10px rgba(51, 51, 51, 0.4);
+                cursor: pointer;
+                 
+            }
+
+                #btn:hover {
+                    background: #00897b;
+                }
+        
+         #contentdiv
+        {
+            
+            border-radius: 8px;
+            position:relative;
+            background:#46ADA4; 
+            width:884px;
+            height:auto;
+            margin:auto;
+           
+             box-shadow: 0px 0px 10px rgba(51, 51, 51, 0.6);
+            border: 4px solid #ccc;
+        }
+        
+         #msgs  {
+            
+             
+            overflow: auto;
+      overflow-x: hidden;
+              position:relative;
+             top: 0;
+             
+                 margin: 10px;
+                display: block;
+                width: 860px;
+                height: 530px;
+                font-size: 1em;
+                border-radius: 10px;
+                outline: none;
+                border: 1px solid #ccc;
+            }
+            
+            
+            
+             #sndmsgs  {
+            
+             
+            word-wrap: break-word;
+              position:relative;
+            
+                padding:5px;
+                 
+                display: inline-block;
+                width: 860px;
+                
+                font-size: 1em;
+                border-radius: 3px;
+                
+                border: 1px solid #ccc;
+                background:#8BC34A;
+            }
+            
+            
+              #recmsgs  {
+            
+             word-wrap: break-word;
+            
+              position:relative;
+            
+             
+                   padding:5px;
+                display:inline-block;
+                width: 860px;
+                
+                font-size: 1em;
+                border-radius: 3px;
+              
+                border: 1px solid #ccc;
+                background:#FFA726;
+            }
+            
+            #smile  {
+            
+            margin-bottom: 10px;
+            float:left;
+            }
+            
+         #users  {
+            margin-top:10px;
+             margin-left:54px;
+            margin-bottom: 10px;
+            
+              position: absolute;
+              bottom: 0;
+             
+                  
+                display: block;
+                width: 65px;
+                padding: 10px 5px;
+                font-size: 1em;
+                border-radius: 10px;
+                outline: none;
+                border: 1px solid #ccc;
+            }
+            
+            #smiles  {
+            
+             margin:10px;
+            
+            
+              position: relative;
+              
+             
+                  background:#46ADA4; 
+                
+                width:840px;
+                height:20px;
+                padding: 10px;
+                font-size: 1em;
+                border-radius: 10px;
+                outline: none;
+                border: 1px solid #ccc;
+            }
+            
+            
+        </style>
+    
+    
+    
+<script type="text/javascript">
+    
+	var smiles={":dance:":"images/dance.gif",":eye:":"images/eye.gif",":facepalm:":"images/facepalm.gif",":giggle:":"images/giggle.gif",":lol:":"images/lol.gif",
+    ":noway:":"images/noway.gif",":omg:":"images/omg.gif",":panic:":"images/panic.gif",":peting:":"images/peting.gif",
+    ":please:":"images/please.gif",":rain:":"images/rain.gif",
+    ":sad:":"images/sad.gif",":wow:":"images/wow.gif",
+    ":zombie:":"images/zombie.gif",":bow:":"images/bow.gif",":angry:":"images/angry.gif"
+    ,":dumb:":"images/dumb.gif",":giveup:":"images/giveup.gif",":urock:":"images/urock.gif",":puppyeyes:":"images/puppyeyes.gif"
+    ,":inlove:":"images/inlove.gif"};
+     var ws;
+     var smilesshowed=false;
+    var g=smiles[":lol:"];
+                
+      ws = new WebSocket("ws://-serverip-:-chatserverport-/hash?-uid-");
+                
+             ws.onopen = function()
+               {
+                  
+           
+               alert("connected to server");
+             
+                };
+             
+             
+             
+              ws.onmessage = function (evt) 
+               { 
+                  var received_msg = evt.data;
+				  
+				  console.log(received_msg)
+                  jsontext=JSON.parse(received_msg);
+				  
+				  console.log(jsontext.action)
+               
+				
+		          if(jsontext.action=="text")
+				  {
+			      messages=document.getElementById("msgs");
+			      messages.appendChild(creatediv(jsontext.data,"From "+jsontext.person,"recmsgs"));
+			      startBlink();
+				  }
+				  
+		          if(jsontext.action=="users")
+				   
+				  {  
+				  
+				  
+				   
+				    jsontext.data = jsontext.data.replace(/'/g, '"');
+				   users=JSON.parse(jsontext.data);
+				   userslist=document.getElementById("users");					 				 			 
+                    
+					 
+					 for(user of users)
+					 {
+					 
+					 option = document.createElement("option");
+                     option.text = user;
+                     userslist.add(option);
+					 
+				     
+					 }
+				  }
+			      
+				  
+				  if(jsontext.action=="ruser")
+				  {
+				  
+				  
+				   userslist=document.getElementById("users");					 				 			 
+                    for (var i =0;i< userslist.length ; i++) {
+                   if (userslist[i].text ==jsontext.data) {
+                   userslist.remove(i);
+                   }
+				  
+				  
+				  
+				  }
+				  }
+				  
+				    if(jsontext.action=="auser")
+				  {
+				  console.log("nw")
+				    userslist=document.getElementById("users");		
+	               option = document.createElement("option");
+                     option.text = jsontext.data;
+                     userslist.add(option);					
+				  }
+				  
+               };
+				
+				
+               ws.onclose = function()
+               { 
+                  // websocket is closed.
+                  alert("Connection is closed..."); 
+               };
+             
+            
+    
+    
+ 
+				
+            send=function()
+            {
+			 
+			 
+			 
+			
+			
+            
+			userslist=document.getElementById("users");	
+			person=userslist.options[userslist.selectedIndex].text;
+			
+			messages=document.getElementById("msgs");
+			mssagetosend=document.getElementById("txtbox").value;
+            if(mssagetosend.length>0 && person!=null&&person!="")
+            {
+			
+			messages.appendChild(creatediv(mssagetosend,"To "+person,"sndmsgs"));
+			
+			
+			jsontext=JSON.stringify({action:"text",person:person,data:mssagetosend});
+			
+			
+			
+			
+			ws.send(jsontext);
+			console.log(jsontext);
+			document.getElementById("txtbox").value="";
+            }
+			
+            }
+			 function close() {
+			alert("ff");
+           ws.close();
+};
+      
+function creatediv(msg,person,id)
+{
+
+
+  var para = document.createElement("p");
+  
+  var perst = document.createElement("span");  
+  perst.style="color:red"
+  perst.appendChild(document.createTextNode(person));
+  para.appendChild(perst);
+  
+  para.appendChild(document.createElement("br"));
+   para.appendChild(document.createElement("br"));
+   
+  var msgdiv = document.createElement('div');
+  msgdiv.id=id;
+  
+   
+  
+ var smilesi={}
+ 
+  for(key in smiles)
+  {
+  
+ 
+   var tempindex=0;
+  while(true)
+  {
+      index=msg.indexOf(key,tempindex);
+      if(index>-1){smilesi[parseInt(index)]=key;tempindex=index+key.length;}
+      else break;
+  }
+   
+  
+  
+  }
+  
+  if(Object.keys(smilesi).length==0)
+  { 
+  var msgt = document.createTextNode(msg);
+  para.appendChild(msgt);
+  
+  }
+  
+  else{
+  var test=[];
+  keys=Object.keys(smilesi);
+  for(key of keys)
+  test.push(parseInt(key))
+  
+  sortedindex=test.sort(function (a, b) { 
+    return a > b ? 1 : a < b ? -1 : 0;
+});
+  var previndex=0;
+  
+  for(i=0;i<sortedindex.length;i++){
+ 
+  cindex=parseInt(sortedindex[i]);
+  text=msg.substring(previndex,cindex)
+  var msgt = document.createTextNode(text);
+  para.appendChild(msgt);
+  
+  
+   var imagespan = document.createElement("span");
+  var image=document.createElement("img");
+  image.src=smiles[smilesi[cindex]];
+  image.align="top";
+  imagespan.appendChild(image)
+   para.appendChild(imagespan);
+   
+   emoji=smilesi[cindex];
+   previndex=cindex+emoji.length;
+ 
+   if(i==sortedindex.length-1)
+   {
+   text=msg.substring(previndex,msg.length)
+  var msgt = document.createTextNode(text);
+  para.appendChild(msgt);
+   }
+  
+  
+  }
+  
+  }
+  
+  
+  
+  
+  
+  
+  
+ 
+  
+   msgdiv.appendChild(para)
+   
+   
+
+  
+ messages=document.getElementById("msgs");
+ 
+ messages.scrollTop =  messages.scrollHeight;
+  
+  return msgdiv;
+
+
+}
+
+      
+function question() {
+ws.close();
+    
+}
+
+function showsmiles()
+
+{
+
+cd=document.getElementById("contentdiv");
+if(!smilesshowed)
+{
+
+var smilediv = document.createElement('div');
+smilediv.id="smiles";
+
+for(image in smiles)
+{
+img=document.createElement('img');
+img.src=smiles[image];
+img.title=image;
+img.style="float:left;margin-left:10px";
+img.onclick=function(){
+
+var txtbox=document.getElementById("txtbox");
+ 
+txtbox.value+=this.title;
+
+}
+
+ smilediv.appendChild(img);
+}
+
+
+
+ 
+cd.insertBefore(smilediv, cd.childNodes[2]);
+smilesshowed=true;
+}
+else
+{
+cd.removeChild(cd.childNodes[2]);  
+smilesshowed=false;
+}
+}
+ 
+
+
+
+ 
+function enter(event)
+{
+        var keyPressed = event.keyCode || event.which;
+
+        //if ENTER is pressed
+        if(keyPressed==13)
+        {
+            send();
+            keyPressed=null;
+        }
+        else
+        {
+            return false;
+        }
+}
+  
+  
+   
+ 
+  function blinkTitle() {
+	if(!window.oldtitle) window.oldtitle = document.title;
+	if(document.title == 'New Message') {
+		document.title = window.oldtitle;
+	} else {
+		document.title = 'New Message';
+	}
+}
+var blink=false;
+function startBlink() {
+if(!document.hasFocus() && blink==false){
+
+    
+	window.blinkinterval = setInterval(blinkTitle,200);
+    blink=true;
+    }
+}
+function stopBlinking()
+{
+if(blink){
+clearInterval(window.blinkinterval);
+		document.title = window.oldtitle;
+        blink=false;
+        }
+
+
+}
+
+	window.onfocus = function() {
+     
+		stopBlinking();
+	
+}
+         
+         
+      </script>
+ 
+   <div id="contentdiv">
+       <div id="msgs" >
+        
+       </div>
+       
+       
+       
+       <img src="images/smile.gif" id="smile" padding="top" style="float:left;"
+       onclick="showsmiles()"></img>
+       
+       <select id="users">
+   
+       <option></option>
+          </select>
+       
+       <input type="text" id="txtbox" onKeyPress=enter(event)>
+       
+        <button id="btn" onclick="send()">Send</button>
+
+
+
+
+    </div>
+
+
+        </body > </html >

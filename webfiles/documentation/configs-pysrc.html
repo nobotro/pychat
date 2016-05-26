@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>configs</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Module&nbsp;configs
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="configs-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="configs-module.html">Module configs</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment"># -*- coding: utf-8 -*-</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"> </tt>
+<a name="Config"></a><div id="Config-def"><a name="L5"></a><tt class="py-lineno">  5</tt> <a class="py-toggle" href="#" id="Config-toggle" onclick="return toggle('Config');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="configs.Config-class.html">Config</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Config-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Config-expanded"><a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line">    <tt class="py-comment">#&#4321;&#4308;&#4320;&#4309;&#4308;&#4320;&#4312;&#4321; &#4314;&#4312;&#4316;&#4323;&#4325;&#4321;&#4310;&#4308; &#4306;&#4304;&#4328;&#4309;&#4308;&#4305;&#4312;&#4321; &#4328;&#4308;&#4315;&#4311;&#4334;&#4309;&#4308;&#4309;&#4304;&#4328;&#4312; &#4324;&#4304;&#4312;&#4320;&#4309;&#4317;&#4314;&#4312;&#4321; &#4306;&#4304;&#4321;&#4304;&#4332;&#4308;&#4320;&#4312; &#4332;&#4308;&#4321;&#4308;&#4305;&#4312;,&#4307;&#4317;&#4321;&#4312;&#4321; &#4321;&#4304;&#4332;&#4312;&#4316;&#4304;&#4304;&#4326;&#4315;&#4307;&#4308;&#4306;&#4317;&#4307;</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line">     </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line">    <tt class="py-comment">#1)&#4329;&#4304;&#4322;&#4321;&#4308;&#4320;&#4309;&#4308;&#4320;&#4312;&#4321; &#4318;&#4317;&#4320;&#4322;&#4310;&#4308; 443 &#4308;&#4320;&#4311;&#4312;&#4307;&#4304;&#4312;&#4306;&#4312;&#4309;&#4308; &#4323;&#4313;&#4309;&#4308; &#4307;&#4304;&#4313;&#4304;&#4309;&#4328;&#4312;&#4320;&#4308;&#4305;&#4323;&#4314;&#4312; &#4312;&#4318;&#4312;&#4307;&#4304;&#4316; &#4315;&#4312;&#4312;&#4326;&#4308;&#4305;&#4304; &#4315;&#4334;&#4317;&#4314;&#4317;&#4307; &#4332;&#4304;&#4315;&#4328;&#4312; 50 &#4318;&#4304;&#4313;&#4308;&#4322;&#4312;,&#4310;&#4308;&#4307;&#4315;&#4308;&#4322;&#4312; &#4318;&#4304;&#4313;&#4308;&#4322;&#4308;&#4305;&#4312; &#4329;&#4304;&#4309;&#4304;&#4320;&#4307;&#4308;&#4305;&#4304;</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line">    <tt class="py-comment">#iptables -A INPUT -p tcp --dport 443 -m state --state RELATED,ESTABLISHED -m limit --limit 50/second -j ACCEPT</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line">      </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line">    <tt class="py-comment">#2)&#4309;&#4308;&#4305;&#4321;&#4308;&#4320;&#4309;&#4308;&#4320;&#4312;&#4321; &#4318;&#4317;&#4320;&#4322;&#4310;&#4308; 80 &#4308;&#4320;&#4311;&#4312;&#4307;&#4304;&#4312;&#4306;&#4312;&#4309;&#4308; &#4323;&#4313;&#4309;&#4308; &#4307;&#4304;&#4313;&#4304;&#4309;&#4328;&#4312;&#4320;&#4308;&#4305;&#4323;&#4314;&#4312; &#4312;&#4318;&#4312;&#4307;&#4304;&#4316; &#4315;&#4312;&#4312;&#4326;&#4308;&#4305;&#4304; &#4315;&#4334;&#4317;&#4314;&#4317;&#4307; &#4332;&#4304;&#4315;&#4328;&#4312; 50 &#4318;&#4304;&#4313;&#4308;&#4322;&#4312;,&#4310;&#4308;&#4307;&#4315;&#4308;&#4322;&#4312; &#4318;&#4304;&#4313;&#4308;&#4322;&#4308;&#4305;&#4312; &#4329;&#4304;&#4309;&#4304;&#4320;&#4307;&#4308;&#4305;&#4304;</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line">    <tt class="py-comment">#iptables -A INPUT -p tcp --dport 80 -m state --state RELATED,ESTABLISHED -m limit --limit 50/second -j ACCEPT</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line">     </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line">    <tt class="py-comment">#2)&#4329;&#4304;&#4322;&#4321;&#4308;&#4320;&#4309;&#4308;&#4320;&#4312;&#4321; &#4318;&#4317;&#4320;&#4322;&#4310;&#4308; 443 &#4308;&#4320;&#4311;&#4312;&#4307;&#4304;&#4312;&#4306;&#4312;&#4309;&#4308; &#4312;&#4318;&#4312;&#4307;&#4304;&#4316; &#4315;&#4312;&#4312;&#4326;&#4308;&#4305;&#4304; &#4308;&#4320;&#4311; &#4332;&#4304;&#4315;&#4328;&#4312; &#4315;&#4334;&#4317;&#4314;&#4317;&#4307; 20 &#4304;&#4334;&#4304;&#4314;&#4312; &#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4312;,&#4310;&#4308;&#4307;&#4315;&#4308;&#4322;&#4312; &#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4308;&#4305;&#4312;&#4321; &#4307;&#4304;&#4313;&#4304;&#4309;&#4328;&#4312;&#4320;&#4308;&#4305;&#4308;&#4305;&#4312; &#4306;&#4304;&#4312;&#4311;&#4312;&#4328;&#4308;&#4305;&#4312;&#4304;&#4316;</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line">    <tt class="py-comment">#iptables -I INPUT -p tcp --dport 443 -i eth0 -m state --state NEW -m recent --set</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line">    <tt class="py-comment">#iptables -I INPUT -p tcp --dport 443 -i eth0 -m state --state NEW -m recent --update --seconds 1 --hitcount 20 -j DROP</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">     </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">    <tt class="py-comment">#2)&#4309;&#4308;&#4305;&#4321;&#4308;&#4320;&#4309;&#4308;&#4320;&#4312;&#4321; &#4318;&#4317;&#4320;&#4322;&#4310;&#4308; 80 &#4308;&#4320;&#4311;&#4312;&#4307;&#4304;&#4312;&#4306;&#4312;&#4309;&#4308; &#4312;&#4318;&#4312;&#4307;&#4304;&#4316; &#4315;&#4312;&#4312;&#4326;&#4308;&#4305;&#4304; &#4308;&#4320;&#4311; &#4332;&#4304;&#4315;&#4328;&#4312; &#4315;&#4334;&#4317;&#4314;&#4317;&#4307; 20 &#4304;&#4334;&#4304;&#4314;&#4312; &#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4312;,&#4310;&#4308;&#4307;&#4315;&#4308;&#4322;&#4312; &#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4308;&#4305;&#4312;&#4321; &#4307;&#4304;&#4313;&#4304;&#4309;&#4328;&#4312;&#4320;&#4308;&#4305;&#4308;&#4305;&#4312; &#4306;&#4304;&#4312;&#4311;&#4312;&#4328;&#4308;&#4305;&#4312;&#4304;&#4316;</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line">    <tt class="py-comment">#iptables -I INPUT -p tcp --dport 80 -i eth0 -m state --state NEW -m recent --set</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">    <tt class="py-comment">#iptables -I INPUT -p tcp --dport 80 -i eth0 -m state --state NEW -m recent --update --seconds 1 --hitcount 20 -j DROP</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">     </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">    <tt class="py-comment">#3)&#4304;&#4320;&#4304;&#4321;&#4320;&#4323;&#4314;&#4312;,&#4306;&#4304;&#4327;&#4304;&#4314;&#4305;&#4308;&#4305;&#4323;&#4314;&#4312; tcp &#4318;&#4304;&#4313;&#4308;&#4322;&#4308;&#4305;&#4312; &#4329;&#4304;&#4309;&#4304;&#4320;&#4307;&#4308;&#4305;&#4312;&#4304;&#4316;</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">    <tt class="py-comment">#iptables -A INPUT -p tcp ! --syn -m state --state NEW -j DROP</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">    <tt class="py-comment">#iptables -A INPUT -p tcp --tcp-flags ALL ALL -j DROP </tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">    <tt class="py-comment">#iptables -A INPUT -p tcp --tcp-flags ALL NONE -j DROP</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">    <tt class="py-comment"># &#4321;&#4308;&#4320;&#4309;&#4308;&#4320;&#4312;&#4321; &#4312;&#4318; &#4315;&#4312;&#4321;&#4304;&#4315;&#4304;&#4320;&#4311;&#4312;</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">    <tt id="link-0" class="py-name" targets="Variable configs.Config.server_ip=configs.Config-class.html#server_ip"><a title="configs.Config.server_ip" class="py-name" href="#" onclick="return doclink('link-0', 'server_ip', 'link-0');">server_ip</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"198.211.116.65"</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">    <tt class="py-comment"># &#4307;&#4320;&#4317;&#4312;&#4321; &#4314;&#4312;&#4315;&#4312;&#4322;&#4312; &#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4312;&#4321;&#4311;&#4309;&#4312;&#4321;(&#4312;&#4316;&#4324;&#4317;&#4320;&#4315;&#4304;&#4330;&#4312;&#4312;&#4321; &#4306;&#4304;&#4315;&#4317;&#4306;&#4310;&#4304;&#4309;&#4316;&#4312;&#4321;,&#4307;&#4304;&#4313;&#4304;&#4309;&#4328;&#4312;&#4320;&#4308;&#4305;&#4312;&#4321;,&#4312;&#4316;&#4324;&#4317;&#4320;&#4315;&#4304;&#4330;&#4312;&#4312;&#4321; &#4315;&#4312;&#4326;&#4308;&#4305;&#4312;&#4321;)</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">    <tt id="link-1" class="py-name" targets="Variable configs.Config.socket_time_out=configs.Config-class.html#socket_time_out"><a title="configs.Config.socket_time_out" class="py-name" href="#" onclick="return doclink('link-1', 'socket_time_out', 'link-1');">socket_time_out</a></tt> <tt class="py-op">=</tt> <tt class="py-number">5</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">    <tt class="py-comment"># &#4321;&#4317;&#4313;&#4308;&#4322;&#4312;&#4321; &#4305;&#4323;&#4324;&#4308;&#4320;&#4312;&#4321; &#4314;&#4312;&#4315;&#4312;&#4322;&#4312;(&#4308;&#4320;&#4311;&#4312; &#4325;&#4304;&#4320;&#4311;&#4323;&#4314;&#4312; &#4321;&#4312;&#4315;&#4305;&#4317;&#4314;&#4317;=3 &#4305;&#4304;&#4312;&#4322;&#4312;,&#4312;&#4316;&#4306;&#4314;&#4312;&#4321;&#4323;&#4320;&#4312;=1 &#4305;&#4304;&#4312;&#4322;&#4312;)</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">    <tt id="link-2" class="py-name" targets="Variable configs.Config.socket_buf_limit=configs.Config-class.html#socket_buf_limit"><a title="configs.Config.socket_buf_limit" class="py-name" href="#" onclick="return doclink('link-2', 'socket_buf_limit', 'link-2');">socket_buf_limit</a></tt> <tt class="py-op">=</tt> <tt class="py-number">3072</tt>  <tt class="py-comment"># &#4305;&#4304;&#4312;&#4322;&#4312;</tt> </tt>
+</div><a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"> </tt>
+<a name="WebServerConfig"></a><div id="WebServerConfig-def"><a name="L41"></a><tt class="py-lineno"> 41</tt> <a class="py-toggle" href="#" id="WebServerConfig-toggle" onclick="return toggle('WebServerConfig');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="configs.WebServerConfig-class.html">WebServerConfig</a><tt class="py-op">(</tt><tt class="py-base-class">Config</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="WebServerConfig-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="WebServerConfig-expanded"><a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">    <tt class="py-comment"># &#4309;&#4308;&#4305;&#4321;&#4308;&#4320;&#4309;&#4308;&#4320;&#4312;&#4321; &#4318;&#4317;&#4320;&#4322;&#4312;</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">    <tt id="link-3" class="py-name" targets="Variable configs.ChatServerConig.server_port=configs.ChatServerConig-class.html#server_port,Variable configs.WebServerConfig.server_port=configs.WebServerConfig-class.html#server_port"><a title="configs.ChatServerConig.server_port
+configs.WebServerConfig.server_port" class="py-name" href="#" onclick="return doclink('link-3', 'server_port', 'link-3');">server_port</a></tt> <tt class="py-op">=</tt> <tt class="py-number">80</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">    <tt class="py-comment"># web &#4324;&#4304;&#4312;&#4314;&#4308;&#4305;&#4312;&#4321; &#4307;&#4312;&#4320;&#4308;&#4325;&#4322;&#4317;&#4320;&#4312;&#4304;</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">    <tt id="link-4" class="py-name" targets="Variable configs.WebServerConfig.web_path=configs.WebServerConfig-class.html#web_path"><a title="configs.WebServerConfig.web_path" class="py-name" href="#" onclick="return doclink('link-4', 'web_path', 'link-4');">web_path</a></tt> <tt class="py-op">=</tt><tt class="py-string">"/root/pywebchatNA_v1/webfiles/"</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">     </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">    <tt class="py-comment"># &#4309;&#4308;&#4305; &#4315;&#4317;&#4311;&#4334;&#4317;&#4309;&#4316;&#4312;&#4321; &#4321;&#4322;&#4320;&#4312;&#4325;&#4317;&#4316;&#4312;&#4307;&#4304;&#4316; ,&#4315;&#4317;&#4311;&#4334;&#4317;&#4309;&#4316;&#4312;&#4314;&#4312; &#4324;&#4304;&#4312;&#4314;&#4312;&#4321; &#4304;&#4315;&#4317;&#4326;&#4308;&#4305;&#4312;&#4321;&#4311;&#4309;&#4312; &#4321;&#4304;&#4333;&#4312;&#4320;&#4317; &#4328;&#4304;&#4305;&#4314;&#4317;&#4316;&#4312;(&#4321;&#4304;&#4332;&#4327;&#4312;&#4321;&#4312; &#4307;&#4304; &#4321;&#4304;&#4305;&#4317;&#4314;&#4317;&#4317; &#4321;&#4312;&#4315;&#4305;&#4317;&#4314;&#4317;)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">    <tt id="link-5" class="py-name" targets="Variable configs.WebServerConfig.file_from_req_text=configs.WebServerConfig-class.html#file_from_req_text"><a title="configs.WebServerConfig.file_from_req_text" class="py-name" href="#" onclick="return doclink('link-5', 'file_from_req_text', 'link-5');">file_from_req_text</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">"/"</tt><tt class="py-op">,</tt> <tt class="py-string">" "</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">    <tt id="link-6" class="py-name" targets="Variable configs.WebServerConfig.etag_from_req_text=configs.WebServerConfig-class.html#etag_from_req_text"><a title="configs.WebServerConfig.etag_from_req_text" class="py-name" href="#" onclick="return doclink('link-6', 'etag_from_req_text', 'link-6');">etag_from_req_text</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">"If-None-Match: "</tt><tt class="py-op">,</tt> <tt class="py-string">"\r"</tt><tt class="py-op">)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">    <tt class="py-comment"># &#4309;&#4308;&#4305; &#4315;&#4317;&#4311;&#4334;&#4317;&#4309;&#4316;&#4312;&#4321; &#4321;&#4322;&#4320;&#4312;&#4325;&#4317;&#4316;&#4312;&#4307;&#4304;&#4316; ,&#4315;&#4317;&#4311;&#4334;&#4317;&#4309;&#4316;&#4312;&#4314;&#4312; &#4324;&#4304;&#4312;&#4314;&#4312;&#4321;(chat.html)-&#4312;&#4321; &#4328;&#4308;&#4315;&#4311;&#4334;&#4309;&#4308;&#4309;&#4304;&#4328;&#4312; clientname-&#4332;&#4304;&#4313;&#4312;&#4311;&#4334;&#4309;&#4312;&#4321; &#4328;&#4304;&#4305;&#4314;&#4317;&#4316;&#4312;</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">    <tt id="link-7" class="py-name" targets="Variable configs.WebServerConfig.client_name_from_req_text=configs.WebServerConfig-class.html#client_name_from_req_text"><a title="configs.WebServerConfig.client_name_from_req_text" class="py-name" href="#" onclick="return doclink('link-7', 'client_name_from_req_text', 'link-7');">client_name_from_req_text</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">"name="</tt><tt class="py-op">,</tt> <tt class="py-string">"\r\n"</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">    <tt class="py-comment"># binary mode read files extensions</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">    <tt id="link-8" class="py-name" targets="Variable configs.WebServerConfig.image_files=configs.WebServerConfig-class.html#image_files"><a title="configs.WebServerConfig.image_files" class="py-name" href="#" onclick="return doclink('link-8', 'image_files', 'link-8');">image_files</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">".jpeg"</tt><tt class="py-op">,</tt> <tt class="py-string">".ico"</tt><tt class="py-op">,</tt> <tt class="py-string">".gif"</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">    <tt class="py-comment">#Cache-Control:max-age=18000 &#4315;&#4304;&#4325;&#4321;&#4312;&#4315;&#4323;&#4315; 5 &#4321;&#4304;&#4304;&#4311;&#4312; &#4312;&#4325;&#4316;&#4308;&#4305;&#4304; &#4324;&#4304;&#4312;&#4314;&#4312; &#4305;&#4320;&#4304;&#4323;&#4310;&#4308;&#4320;&#4312;&#4321; &#4325;&#4308;&#4328;&#4328;&#4312;,&#4315;&#4308;&#4320;&#4308; &#4323;&#4313;&#4309;&#4308; &#4328;&#4308;&#4304;&#4315;&#4317;&#4332;&#4315;&#4308;&#4305;&#4321; etags </tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">    <tt class="py-comment">#&#4311;&#4323; &#4306;&#4304;&#4316;&#4321;&#4334;&#4309;&#4304;&#4309;&#4308;&#4305;&#4323;&#4314;&#4312; &#4312;&#4325;&#4316;&#4308;&#4305;&#4304; &#4304;&#4334;&#4304;&#4314;&#4321; &#4332;&#4304;&#4315;&#4317;&#4312;&#4326;&#4308;&#4305;&#4321;,&#4311;&#4323; &#4304;&#4320;&#4304; &#4312;&#4321;&#4308;&#4309; &#4325;&#4308;&#4328;&#4312;&#4307;&#4304;&#4316; &#4304;&#4315;&#4312;&#4326;&#4308;&#4305;&#4321;</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">    <tt class="py-comment"># web responce text</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">    <tt id="link-9" class="py-name" targets="Variable configs.WebServerConfig.web_responce=configs.WebServerConfig-class.html#web_responce"><a title="configs.WebServerConfig.web_responce" class="py-name" href="#" onclick="return doclink('link-9', 'web_responce', 'link-9');">web_responce</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"HTTP/1.1 {rstatus} \nContent-Type: {rtype}/{rfext}\nCache-Control:max-age=18000\nETag:{retag}\nVary: Accept-Encoding\nContent-Encoding:gzip\nContent-Length:{clen}\n\n"</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">    <tt class="py-comment"># &#4325;&#4308;&#4328;&#4312; &#4324;&#4304;&#4312;&#4314;&#4308;&#4305;&#4312;&#4321;&#4311;&#4309;&#4312;&#4321;(dictionary.{key,value})</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">    <tt id="link-10" class="py-name" targets="Variable configs.WebServerConfig.file_cache=configs.WebServerConfig-class.html#file_cache"><a title="configs.WebServerConfig.file_cache" class="py-name" href="#" onclick="return doclink('link-10', 'file_cache', 'link-10');">file_cache</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">    <tt class="py-comment">#gzip &#4313;&#4317;&#4315;&#4318;&#4320;&#4308;&#4321;&#4312;&#4312;&#4321; &#4307;&#4317;&#4316;&#4308;.(gzip &#4306;&#4304;&#4315;&#4317;&#4312;&#4327;&#4308;&#4316;&#4308;&#4305;&#4304; &#4324;&#4304;&#4312;&#4314;&#4308;&#4305;&#4312;&#4321; &#4328;&#4308;&#4321;&#4304;&#4313;&#4323;&#4315;&#4328;&#4304;&#4307; &#4307;&#4304; &#4312;&#4321;&#4308; &#4306;&#4304;&#4321;&#4304;&#4306;&#4310;&#4304;&#4309;&#4316;&#4304;&#4307;)</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">    <tt id="link-11" class="py-name" targets="Variable configs.WebServerConfig.gzip_compress_level=configs.WebServerConfig-class.html#gzip_compress_level"><a title="configs.WebServerConfig.gzip_compress_level" class="py-name" href="#" onclick="return doclink('link-11', 'gzip_compress_level', 'link-11');">gzip_compress_level</a></tt><tt class="py-op">=</tt><tt class="py-number">5</tt> </tt>
+</div><a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"> </tt>
+<a name="ChatServerConig"></a><div id="ChatServerConig-def"><a name="L76"></a><tt class="py-lineno"> 76</tt> <a class="py-toggle" href="#" id="ChatServerConig-toggle" onclick="return toggle('ChatServerConig');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="configs.ChatServerConig-class.html">ChatServerConig</a><tt class="py-op">(</tt><tt class="py-base-class">Config</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ChatServerConig-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ChatServerConig-expanded"><a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">    <tt class="py-comment"># &#4329;&#4304;&#4322;&#4321;&#4308;&#4320;&#4309;&#4308;&#4320;&#4312;&#4321; &#4318;&#4317;&#4320;&#4322;&#4312;</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">    <tt id="link-12" class="py-name"><a title="configs.ChatServerConig.server_port
+configs.WebServerConfig.server_port" class="py-name" href="#" onclick="return doclink('link-12', 'server_port', 'link-3');">server_port</a></tt> <tt class="py-op">=</tt> <tt class="py-number">443</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">    <tt class="py-comment"># &#4318;&#4304;&#4321;&#4323;&#4334;&#4312; &#4309;&#4308;&#4305; &#4321;&#4317;&#4313;&#4308;&#4322;&#4312;&#4321; &#4315;&#4317;&#4311;&#4334;&#4317;&#4309;&#4316;&#4304;&#4310;&#4308;</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">    <tt id="link-13" class="py-name" targets="Variable configs.ChatServerConig.websocket_answer=configs.ChatServerConig-class.html#websocket_answer"><a title="configs.ChatServerConig.websocket_answer" class="py-name" href="#" onclick="return doclink('link-13', 'websocket_answer', 'link-13');">websocket_answer</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">        <tt class="py-string">'HTTP/1.1 101 Switching Protocols'</tt><tt class="py-op">,</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-string">'Upgrade: websocket'</tt><tt class="py-op">,</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">        <tt class="py-string">'Connection: Upgrade'</tt><tt class="py-op">,</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">        <tt class="py-string">'Sec-WebSocket-Accept: {key}\r\n\r\n'</tt><tt class="py-op">,</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">    <tt class="py-op">)</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">    <tt class="py-comment"># &#4309;&#4308;&#4305; &#4321;&#4317;&#4313;&#4308;&#4322;&#4312;&#4321; &#4313;&#4317;&#4307;&#4312;</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">    <tt id="link-14" class="py-name" targets="Variable configs.ChatServerConig.GUID=configs.ChatServerConig-class.html#GUID"><a title="configs.ChatServerConig.GUID" class="py-name" href="#" onclick="return doclink('link-14', 'GUID', 'link-14');">GUID</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"258EAFA5-E914-47DA-95CA-C5AB0DC85B11"</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">    <tt class="py-comment"># &#4309;&#4308;&#4305; &#4321;&#4317;&#4313;&#4308;&#4322;&#4312;&#4321; &#4315;&#4317;&#4311;&#4334;&#4317;&#4309;&#4316;&#4312;&#4307;&#4304;&#4316; &#4336;&#4308;&#4328;&#4312;&#4321; &#4304;&#4315;&#4317;&#4326;&#4308;&#4305;&#4312;&#4321; &#4328;&#4304;&#4305;&#4314;&#4317;&#4316;&#4312;</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">    <tt id="link-15" class="py-name" targets="Variable configs.ChatServerConig.client_hash_from_websckt_req_text=configs.ChatServerConig-class.html#client_hash_from_websckt_req_text"><a title="configs.ChatServerConig.client_hash_from_websckt_req_text" class="py-name" href="#" onclick="return doclink('link-15', 'client_hash_from_websckt_req_text', 'link-15');">client_hash_from_websckt_req_text</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">"hash?"</tt><tt class="py-op">,</tt> <tt class="py-string">" HTTP"</tt><tt class="py-op">)</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">    <tt class="py-comment"># &#4309;&#4308;&#4305; &#4321;&#4317;&#4313;&#4308;&#4322;&#4312;&#4321; &#4315;&#4308;&#4321;&#4312;&#4335;&#4312;&#4321; &#4324;&#4317;&#4320;&#4315;&#4304;&#4322;&#4312;(json) "action:0,person:1,data:2"</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">    <tt class="py-comment"># action-&#4315;&#4308;&#4321;&#4312;&#4335;&#4312;&#4321; &#4315;&#4312;&#4310;&#4304;&#4316;&#4312;,to-&#4318;&#4312;&#4320;&#4317;&#4309;&#4316;&#4308;&#4305;&#4304; &#4309;&#4312;&#4316;&#4330; &#4306;&#4304;&#4304;&#4306;&#4310;&#4304;&#4309;&#4316;&#4304; &#4304;&#4316; &#4309;&#4312;&#4316;&#4330; &#4315;&#4312;&#4312;&#4326;&#4308;&#4305;&#4321; &#4304;&#4315; &#4315;&#4308;&#4321;&#4312;&#4335;&#4321;,data-&#4315;&#4308;&#4321;&#4312;&#4335;&#4312;&#4321; &#4322;&#4304;&#4316;&#4312;(&#4315;&#4317;&#4316;&#4304;&#4330;&#4308;&#4315;&#4308;&#4305;&#4312;)</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">    <tt class="py-comment"># action &#4315;&#4316;&#4312;&#4328;&#4309;&#4316;&#4308;&#4314;&#4317;&#4305;&#4308;&#4305;&#4312; text,usrslist,auser,ruser</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">    <tt class="py-comment"># &#4311;&#4323; &#4321;&#4308;&#4320;&#4309;&#4308;&#4320;&#4310;&#4308; &#4315;&#4312;&#4309;&#4304; &#4315;&#4308;&#4321;&#4312;&#4335;&#4312; &#4320;&#4317;&#4315;&#4308;&#4314;&#4321;&#4304; action-&#4304;&#4325;&#4309;&#4321; text,&#4321;&#4308;&#4320;&#4309;&#4308;&#4320;&#4312; &#4304;&#4315;&#4317;&#4312;&#4313;&#4312;&#4311;&#4334;&#4304;&#4309;&#4321; &#4318;&#4312;&#4320;&#4317;&#4309;&#4316;&#4308;&#4305;&#4304;&#4321; &#4304;&#4315; &#4315;&#4308;&#4321;&#4312;&#4335;&#4312;&#4307;&#4304;&#4316;(&#4304;&#4316;&#4323; &#4309;&#4312;&#4321;&#4304;&#4330; &#4323;&#4306;&#4310;&#4304;&#4309;&#4316;&#4312;&#4321; &#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4312; &#4304;&#4315; &#4315;&#4308;&#4321;&#4312;&#4335;&#4321;)</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">    <tt class="py-comment"># &#4318;&#4312;&#4320;&#4317;&#4309;&#4316;&#4308;&#4305;&#4312;&#4321; &#4315;&#4316;&#4312;&#4328;&#4309;&#4316;&#4308;&#4314;&#4317;&#4305;&#4304;&#4321; &#4328;&#4308;&#4330;&#4309;&#4314;&#4312;&#4321; &#4304;&#4315; &#4315;&#4308;&#4321;&#4312;&#4335;&#4312;&#4321; &#4306;&#4304;&#4315;&#4317;&#4315;&#4306;&#4310;&#4304;&#4309;&#4316;&#4312; &#4318;&#4312;&#4320;&#4317;&#4309;&#4316;&#4308;&#4305;&#4312;&#4311; &#4307;&#4304; &#4306;&#4304;&#4323;&#4306;&#4310;&#4304;&#4309;&#4316;&#4312;&#4321; &#4318;&#4312;&#4320;&#4317;&#4309;&#4316;&#4308;&#4305;&#4312;&#4321; &#4318;&#4312;&#4320;&#4309;&#4308;&#4314; &#4315;&#4316;&#4312;&#4309;&#4316;&#4308;&#4314;&#4317;&#4305;&#4312;&#4321; &#4315;&#4325;&#4317;&#4316;&#4308; &#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4321;</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">    <tt class="py-comment"># &#4321;&#4308;&#4320;&#4309;&#4308;&#4320;&#4312; &#4304;&#4315;&#4323;&#4328;&#4304;&#4309;&#4308;&#4305;&#4321; &#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4312;&#4321;&#4306;&#4304;&#4316; &#4315;&#4312;&#4326;&#4308;&#4305;&#4323;&#4314; &#4315;&#4308;&#4321;&#4312;&#4335;&#4308;&#4305;&#4321; &#4315;&#4334;&#4317;&#4314;&#4317;&#4307; &#4312;&#4315; &#4328;&#4308;&#4315;&#4311;&#4334;&#4309;&#4308;&#4309;&#4304;&#4328;&#4312; &#4311;&#4323; &#4315;&#4304;&#4311;&#4312; action &#4304;&#4320;&#4312;&#4321; text</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">    <tt class="py-comment"># &#4311;&#4323; &#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4310;&#4308; &#4315;&#4312;&#4309;&#4304; &#4315;&#4308;&#4321;&#4312;&#4335;&#4312; &#4320;&#4317;&#4315;&#4308;&#4314;&#4321;&#4304; action-&#4304;&#4325;&#4309;&#4321; text,&#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4312; &#4304;&#4315;&#4317;&#4312;&#4313;&#4312;&#4311;&#4334;&#4304;&#4309;&#4321; &#4318;&#4312;&#4320;&#4317;&#4309;&#4316;&#4308;&#4305;&#4304;&#4321;(&#4304;&#4316;&#4323; &#4309;&#4312;&#4316; &#4306;&#4304;&#4323;&#4306;&#4310;&#4304;&#4309;&#4316;&#4304; &#4304;&#4315; &#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4321; &#4315;&#4308;&#4321;&#4312;&#4335;&#4312;) &#4307;&#4304; &#4307;&#4304;&#4305;&#4308;&#4333;&#4307;&#4304;&#4309;&#4321; &#4308;&#4313;&#4320;&#4304;&#4316;&#4310;&#4308;</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">    <tt id="link-16" class="py-name" targets="Variable configs.ChatServerConig.action_text=configs.ChatServerConig-class.html#action_text"><a title="configs.ChatServerConig.action_text" class="py-name" href="#" onclick="return doclink('link-16', 'action_text', 'link-16');">action_text</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"text"</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">    <tt class="py-comment"># &#4311;&#4323; &#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4310;&#4308; &#4315;&#4312;&#4309;&#4304; &#4315;&#4308;&#4321;&#4312;&#4335;&#4312; &#4320;&#4317;&#4315;&#4308;&#4314;&#4321;&#4304; action-&#4304;&#4325;&#4309;&#4321; usrs(&#4304;&#4315; &#4306;&#4310;&#4312;&#4311; &#4321;&#4308;&#4320;&#4309;&#4308;&#4320;&#4312; &#4323;&#4306;&#4310;&#4304;&#4309;&#4316;&#4312;&#4321; &#4304;&#4334;&#4304;&#4314; &#4328;&#4308;&#4315;&#4317;&#4321;&#4323;&#4314; &#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4321;,&#4304;&#4320;&#4321;&#4308;&#4305;&#4323;&#4314;&#4312; &#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4308;&#4305;&#4312;&#4321; &#4321;&#4312;&#4304;&#4321;),&#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4312; &#4304;&#4315;&#4317;&#4312;&#4313;&#4312;&#4311;&#4334;&#4304;&#4309;&#4321; &#4315;&#4316;&#4312;&#4328;&#4309;&#4316;&#4308;&#4314;&#4317;&#4305;&#4304;&#4321;(&#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4308;&#4305;&#4312;&#4321; &#4321;&#4312;&#4304;&#4321;) &#4307;&#4304;</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">    <tt class="py-comment"># &#4307;&#4304;&#4304;&#4315;&#4304;&#4322;&#4308;&#4305;&#4321; &#4315;&#4304;&#4311; chat.html-&#4321; select id="names"-&#4308;&#4314;&#4308;&#4315;&#4308;&#4316;&#4322;&#4328;&#4312;</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">    <tt id="link-17" class="py-name" targets="Variable configs.ChatServerConig.action_send_users_list=configs.ChatServerConig-class.html#action_send_users_list"><a title="configs.ChatServerConig.action_send_users_list" class="py-name" href="#" onclick="return doclink('link-17', 'action_send_users_list', 'link-17');">action_send_users_list</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"users"</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">    <tt class="py-comment"># &#4311;&#4323; &#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4310;&#4308; &#4315;&#4312;&#4309;&#4304; &#4315;&#4308;&#4321;&#4312;&#4335;&#4312; &#4320;&#4317;&#4315;&#4308;&#4314;&#4321;&#4304; action-&#4304;&#4325;&#4309;&#4321; ruser(&#4304;&#4315; &#4306;&#4310;&#4312;&#4311; &#4321;&#4308;&#4320;&#4309;&#4308;&#4320;&#4312; &#4323;&#4306;&#4310;&#4304;&#4309;&#4316;&#4312;&#4321; &#4328;&#4308;&#4322;&#4327;&#4317;&#4305;&#4312;&#4316;&#4308;&#4305;&#4304;&#4321; &#4327;&#4309;&#4308;&#4314;&#4304; &#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4321;, &#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4312;&#4321; &#4306;&#4304;&#4311;&#4312;&#4328;&#4309;&#4304;&#4310;&#4308;),&#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4312; &#4304;&#4315;&#4317;&#4312;&#4313;&#4312;&#4311;&#4334;&#4304;&#4309;&#4321; &#4315;&#4316;&#4312;&#4328;&#4309;&#4316;&#4308;&#4314;&#4317;&#4305;&#4304;&#4321;(&#4332;&#4304;&#4328;&#4314;&#4312;&#4314; &#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4321;) &#4307;&#4304;</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">    <tt class="py-comment"># &#4332;&#4304;&#4328;&#4314;&#4312;&#4321; &#4315;&#4304;&#4321; chat.html-&#4321; &lt;select id="names"&gt;-&#4308;&#4314;&#4308;&#4315;&#4308;&#4316;&#4322;&#4312;&#4307;&#4304;&#4316;</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">    <tt id="link-18" class="py-name" targets="Variable configs.ChatServerConig.action_ruser=configs.ChatServerConig-class.html#action_ruser"><a title="configs.ChatServerConig.action_ruser" class="py-name" href="#" onclick="return doclink('link-18', 'action_ruser', 'link-18');">action_ruser</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"ruser"</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">    <tt class="py-comment"># &#4311;&#4323; &#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4310;&#4308; &#4315;&#4312;&#4309;&#4304; &#4315;&#4308;&#4321;&#4312;&#4335;&#4312; &#4320;&#4317;&#4315;&#4308;&#4314;&#4321;&#4304; action-&#4304;&#4325;&#4309;&#4321; auser(&#4304;&#4315; &#4306;&#4310;&#4312;&#4311; &#4321;&#4308;&#4320;&#4309;&#4308;&#4320;&#4312; &#4323;&#4306;&#4310;&#4304;&#4309;&#4316;&#4312;&#4321; &#4328;&#4308;&#4322;&#4327;&#4317;&#4305;&#4312;&#4316;&#4308;&#4305;&#4304;&#4321; &#4327;&#4309;&#4308;&#4314;&#4304; &#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4321;,&#4304;&#4334;&#4304;&#4314;&#4312; &#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4312;&#4321; &#4307;&#4304;&#4313;&#4304;&#4309;&#4328;&#4312;&#4320;&#4308;&#4305;&#4304;&#4310;&#4308;),&#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4312; &#4304;&#4315;&#4317;&#4312;&#4313;&#4312;&#4311;&#4334;&#4304;&#4309;&#4321; &#4315;&#4316;&#4312;&#4328;&#4309;&#4316;&#4308;&#4314;&#4317;&#4305;&#4304;&#4321;(&#4304;&#4334;&#4304;&#4314; &#4313;&#4314;&#4312;&#4308;&#4316;&#4322;&#4321;) &#4307;&#4304;</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">    <tt class="py-comment"># &#4307;&#4304;&#4304;&#4315;&#4304;&#4322;&#4308;&#4305;&#4321; &#4315;&#4304;&#4321; chat.html-&#4321; &lt;select id="names"&gt;-&#4308;&#4314;&#4308;&#4315;&#4308;&#4316;&#4322;&#4328;&#4312;</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">    <tt id="link-19" class="py-name" targets="Variable configs.ChatServerConig.action_auser=configs.ChatServerConig-class.html#action_auser"><a title="configs.ChatServerConig.action_auser" class="py-name" href="#" onclick="return doclink('link-19', 'action_auser', 'link-19');">action_auser</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"auser"</tt> </tt>
+</div><a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu May 26 17:27:54 2016
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

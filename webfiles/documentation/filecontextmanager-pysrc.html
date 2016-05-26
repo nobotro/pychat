@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>filecontextmanager</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Module&nbsp;filecontextmanager
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="filecontextmanager-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="filecontextmanager-module.html">Module filecontextmanager</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment"># -*- coding: utf-8 -*-</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">threading</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module configs=configs-module.html"><a title="configs" class="py-name" href="#" onclick="return doclink('link-0', 'configs', 'link-0');">configs</a></tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">datetime</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Module stringutils=stringutils-module.html"><a title="stringutils" class="py-name" href="#" onclick="return doclink('link-1', 'stringutils', 'link-1');">stringutils</a></tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"> </tt>
+<a name="ContextManager"></a><div id="ContextManager-def"><a name="L8"></a><tt class="py-lineno"> 8</tt> <a class="py-toggle" href="#" id="ContextManager-toggle" onclick="return toggle('ContextManager');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="filecontextmanager.ContextManager-class.html">ContextManager</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ContextManager-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="ContextManager-expanded"><a name="ContextManager.__init__"></a><div id="ContextManager.__init__-def"><a name="L9"></a><tt class="py-lineno"> 9</tt> <a class="py-toggle" href="#" id="ContextManager.__init__-toggle" onclick="return toggle('ContextManager.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="filecontextmanager.ContextManager-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">config</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ContextManager.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="ContextManager.__init__-expanded"><a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line">        <tt class="py-comment"># &#4329;&#4304;&#4309;&#4322;&#4309;&#4312;&#4320;&#4311;&#4317;&#4311; &#4313;&#4317;&#4316;&#4324;&#4312;&#4306;&#4312;&#4321; &#4318;&#4304;&#4320;&#4304;&#4315;&#4308;&#4322;&#4320;&#4308;&#4305;&#4312;</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">conf</tt> <tt class="py-op">=</tt> <tt class="py-name">config</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">        <tt class="py-comment"># &#4316;&#4304;&#4313;&#4304;&#4307;&#4308;&#4305;&#4312;&#4321; &#4315;&#4305;&#4314;&#4317;&#4313;&#4304;&#4309;&#4312;&#4321; &#4312;&#4316;&#4312;&#4330;&#4312;&#4304;&#4314;&#4312;&#4310;&#4308;&#4305;&#4304;.&#4320;&#4304;&#4311;&#4304; &#4304;&#4320; &#4315;&#4317;&#4334;&#4307;&#4308;&#4321; &#4317;&#4320; &#4316;&#4304;&#4313;&#4304;&#4307;&#4312;&#4321; &#4328;&#4317;&#4320;&#4312;&#4321; &#4321;&#4304;&#4308;&#4320;&#4311;&#4317; &#4320;&#4308;&#4321;&#4323;&#4320;&#4321;&#4310;&#4308; &#4308;&#4320;&#4311;&#4307;&#4320;&#4317;&#4323;&#4314;&#4312; &#4332;&#4309;&#4307;&#4317;&#4315;&#4304;</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">thread_lock</tt> <tt class="py-op">=</tt> <tt class="py-name">threading</tt><tt class="py-op">.</tt><tt class="py-name">Lock</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">         </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">     </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">    <tt class="py-comment"># &#4304;&#4305;&#4320;&#4323;&#4316;&#4308;&#4305;&#4321; &#4324;&#4304;&#4312;&#4314;&#4312;&#4321; &#4328;&#4312;&#4306;&#4311;&#4304;&#4309;&#4321;&#4321;</tt> </tt>
+<a name="ContextManager.get_context"></a><div id="ContextManager.get_context-def"><a name="L19"></a><tt class="py-lineno">19</tt> <a class="py-toggle" href="#" id="ContextManager.get_context-toggle" onclick="return toggle('ContextManager.get_context');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="filecontextmanager.ContextManager-class.html#get_context">get_context</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">file_name</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ContextManager.get_context-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="ContextManager.get_context-expanded"><a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">        <tt class="py-name">context</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">        <tt class="py-name">time</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">        <tt class="py-name">f</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">        <tt class="py-comment"># &#4311;&#4323; &#4304;&#4315; &#4324;&#4304;&#4312;&#4314;&#4312;&#4321; &#4328;&#4312;&#4306;&#4311;&#4304;&#4309;&#4321;&#4312; &#4323;&#4313;&#4309;&#4308; &#4306;&#4309;&#4304;&#4325;&#4309;&#4321; &#4325;&#4308;&#4328;&#4328;&#4312;,&#4315;&#4304;&#4328;&#4312;&#4316; &#4307;&#4304;&#4309;&#4304;&#4305;&#4320;&#4323;&#4316;&#4317;&#4311; &#4325;&#4308;&#4328;&#4312;&#4307;&#4304;&#4316; &#4307;&#4304; &#4304;&#4326;&#4304;&#4320; &#4332;&#4304;&#4309;&#4312;&#4313;&#4312;&#4334;&#4317;&#4311; &#4324;&#4304;&#4312;&#4314;&#4312;</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">file_name</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">conf</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Variable configs.WebServerConfig.file_cache=configs.WebServerConfig-class.html#file_cache"><a title="configs.WebServerConfig.file_cache" class="py-name" href="#" onclick="return doclink('link-2', 'file_cache', 'link-2');">file_cache</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">conf</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name"><a title="configs.WebServerConfig.file_cache" class="py-name" href="#" onclick="return doclink('link-3', 'file_cache', 'link-2');">file_cache</a></tt><tt class="py-op">[</tt><tt class="py-name">file_name</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">conf</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name"><a title="configs.WebServerConfig.file_cache" class="py-name" href="#" onclick="return doclink('link-4', 'file_cache', 'link-2');">file_cache</a></tt><tt class="py-op">[</tt><tt class="py-name">file_name</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">            <tt class="py-comment"># &#4307;&#4304;&#4309;&#4305;&#4314;&#4317;&#4313;&#4317;&#4311; &#4313;&#4317;&#4307;&#4312;&#4321; &#4325;&#4309;&#4308;&#4315;&#4317;&#4311;&#4304; &#4316;&#4304;&#4332;&#4312;&#4314;&#4312;(&#4312;&#4306;&#4312;&#4309;&#4308; &#4321;&#4312;&#4316;&#4325;&#4320;&#4317;&#4316;&#4323;&#4314;&#4312; &#4305;&#4314;&#4317;&#4313;&#4312;)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">thread_lock</tt><tt class="py-op">.</tt><tt class="py-name">acquire</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">            <tt class="py-comment"># &#4317;&#4320;&#4312; &#4328;&#4308;&#4315;&#4317;&#4332;&#4315;&#4308;&#4305;&#4304; &#4321;&#4304;&#4333;&#4312;&#4320;&#4317;&#4304; &#4305;&#4308;&#4309;&#4320;&#4312; &#4316;&#4304;&#4313;&#4304;&#4307;&#4312;&#4321;&#4311;&#4309;&#4312;&#4321;.</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">            <tt class="py-comment"># &#4311;&#4323; &#4320;&#4304;&#4315;&#4307;&#4308;&#4316;&#4312;&#4315;&#4308; &#4316;&#4304;&#4313;&#4304;&#4307;&#4312; &#4308;&#4320;&#4311;&#4307;&#4320;&#4317;&#4323;&#4314;&#4304;&#4307; &#4328;&#4308;&#4315;&#4317;&#4309;&#4312;&#4307;&#4304; else-&#4328;&#4312; &#4315;&#4304;&#4328;&#4312;&#4316; &#4327;&#4309;&#4308;&#4314;&#4304; &#4315;&#4304;&#4311;&#4306;&#4304;&#4316;&#4312; &#4332;&#4304;&#4312;&#4313;&#4312;&#4311;&#4334;&#4304;&#4309;&#4321;</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">            <tt class="py-comment"># &#4308;&#4320;&#4311;&#4312;&#4307;&#4304;&#4312;&#4306;&#4312;&#4309;&#4308; &#4324;&#4304;&#4312;&#4314;&#4321;,&#4304;&#4315;&#4312;&#4321; &#4304;&#4321;&#4304;&#4320;&#4312;&#4307;&#4308;&#4305;&#4314;&#4304;&#4307; &#4321;&#4304;&#4333;&#4312;&#4320;&#4317;&#4304; &#4328;&#4308;&#4309;&#4304;&#4315;&#4317;&#4332;&#4315;&#4317;&#4311; &#4315;&#4308;&#4317;&#4320;&#4308;&#4335;&#4308;&#4320;,&#4323;&#4313;&#4309;&#4308; &#4334;&#4317;&#4315; &#4304;&#4320; &#4332;&#4304;&#4312;&#4313;&#4312;&#4311;&#4334;&#4304; &#4332;&#4312;&#4316;&#4304; &#4316;&#4304;&#4313;&#4304;&#4307;&#4315;&#4304; &#4324;&#4304;&#4312;&#4314;&#4312;?</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">            <tt class="py-comment"># &#4311;&#4323; &#4332;&#4304;&#4312;&#4313;&#4312;&#4311;&#4334;&#4304; &#4307;&#4304;&#4309;&#4304;&#4305;&#4320;&#4323;&#4316;&#4317;&#4311; &#4323;&#4313;&#4309;&#4308; &#4304;&#4315;&#4317;&#4313;&#4312;&#4311;&#4334;&#4323;&#4314;&#4312;,&#4311;&#4323; &#4304;&#4320;&#4304; &#4315;&#4304;&#4328;&#4312;&#4316; &#4332;&#4304;&#4309;&#4312;&#4313;&#4312;&#4311;&#4334;&#4317;&#4311; &#4324;&#4304;&#4312;&#4314;&#4312;</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">file_name</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">conf</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="configs.WebServerConfig.file_cache" class="py-name" href="#" onclick="return doclink('link-5', 'file_cache', 'link-2');">file_cache</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">conf</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="configs.WebServerConfig.file_cache" class="py-name" href="#" onclick="return doclink('link-6', 'file_cache', 'link-2');">file_cache</a></tt><tt class="py-op">[</tt><tt class="py-name">file_name</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">conf</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="configs.WebServerConfig.file_cache" class="py-name" href="#" onclick="return doclink('link-7', 'file_cache', 'link-2');">file_cache</a></tt><tt class="py-op">[</tt><tt class="py-name">file_name</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">            <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">                <tt class="py-comment"># &#4324;&#4304;&#4312;&#4314;&#4312;&#4321; &#4332;&#4304;&#4313;&#4312;&#4311;&#4334;&#4309;&#4304;</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">                <tt class="py-name">f</tt> <tt class="py-op">=</tt> <tt class="py-name">open</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">conf</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Variable configs.WebServerConfig.web_path=configs.WebServerConfig-class.html#web_path"><a title="configs.WebServerConfig.web_path" class="py-name" href="#" onclick="return doclink('link-8', 'web_path', 'link-8');">web_path</a></tt> <tt class="py-op">+</tt> <tt class="py-name">file_name</tt><tt class="py-op">,</tt> <tt class="py-name">mode</tt><tt class="py-op">=</tt><tt class="py-string">"rb"</tt><tt class="py-op">)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">                <tt class="py-name">context</tt> <tt class="py-op">=</tt> <tt class="py-name">f</tt><tt class="py-op">.</tt><tt class="py-name">read</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">                 </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">         </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">              </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">                <tt class="py-name">context</tt> <tt class="py-op">=</tt> <tt id="link-9" class="py-name"><a title="stringutils" class="py-name" href="#" onclick="return doclink('link-9', 'stringutils', 'link-1');">stringutils</a></tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Function stringutils.gzip_compress()=stringutils-module.html#gzip_compress"><a title="stringutils.gzip_compress" class="py-name" href="#" onclick="return doclink('link-10', 'gzip_compress', 'link-10');">gzip_compress</a></tt><tt class="py-op">(</tt><tt class="py-name">context</tt><tt class="py-op">,</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">conf</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Variable configs.WebServerConfig.gzip_compress_level=configs.WebServerConfig-class.html#gzip_compress_level"><a title="configs.WebServerConfig.gzip_compress_level" class="py-name" href="#" onclick="return doclink('link-11', 'gzip_compress_level', 'link-11');">gzip_compress_level</a></tt><tt class="py-op">)</tt>                 </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">                                              </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">                <tt class="py-comment">#&#4304;&#4315;&#4317;&#4309;&#4312;&#4326;&#4317;&#4311; &#4324;&#4304;&#4312;&#4314;&#4312;&#4321; &#4305;&#4317;&#4314;&#4317;&#4321; &#4315;&#4317;&#4307;&#4312;&#4324;&#4312;&#4330;&#4312;&#4320;&#4308;&#4305;&#4312;&#4321; &#4311;&#4304;&#4320;&#4312;&#4326;&#4312;</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">                <tt class="py-name">time</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">getmtime</tt><tt class="py-op">(</tt><tt class="py-name">f</tt><tt class="py-op">.</tt><tt class="py-name">name</tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">                <tt class="py-comment"># &#4324;&#4304;&#4312;&#4314;&#4312;&#4321; &#4328;&#4312;&#4306;&#4311;&#4304;&#4309;&#4321;&#4312;&#4321; &#4325;&#4308;&#4328;&#4328;&#4312; &#4329;&#4304;&#4306;&#4307;&#4308;&#4305;&#4304;</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line"> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">conf</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="configs.WebServerConfig.file_cache" class="py-name" href="#" onclick="return doclink('link-12', 'file_cache', 'link-2');">file_cache</a></tt><tt class="py-op">[</tt><tt class="py-name">file_name</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">context</tt><tt class="py-op">,</tt> <tt class="py-name">time</tt><tt class="py-op">]</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line"> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">            <tt class="py-keyword">except</tt> <tt class="py-name">Exception</tt> <tt class="py-keyword">as</tt> <tt class="py-name">e</tt><tt class="py-op">:</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line"> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt><tt class="py-op">(</tt><tt class="py-string">"eror getting context"</tt> <tt class="py-op">+</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">e</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line"> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">            <tt class="py-keyword">finally</tt><tt class="py-op">:</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">f</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">                    <tt class="py-name">f</tt><tt class="py-op">.</tt><tt class="py-name">close</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line"> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line">            <tt class="py-comment"># &#4315;&#4317;&#4309;&#4334;&#4321;&#4316;&#4304;&#4311; &#4316;&#4304;&#4313;&#4304;&#4307;&#4308;&#4305;&#4312;&#4321; &#4305;&#4314;&#4317;&#4313;&#4312;</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">thread_lock</tt><tt class="py-op">.</tt><tt class="py-name">release</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">              </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-op">(</tt><tt class="py-name">context</tt><tt class="py-op">,</tt> <tt class="py-name">time</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu May 26 17:27:54 2016
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
