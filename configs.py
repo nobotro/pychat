@@ -44,7 +44,7 @@ class WebServerConfig(Config):
 
     # web ფაილების დირექტორია
 
-    web_path = os.getcwd()+"/webfiles/"
+    web_path = "/root/pychat/webfiles/"
 
     # ვებ მოთხოვნის სტრიქონიდან ,მოთხოვნილი ფაილის ამოღებისთვი საჭირო შაბლონი(საწყისი და საბოლოო სიმბოლო)
     file_from_req_text = ("/", " ")
